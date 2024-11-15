@@ -4,4 +4,4 @@
 //B - TASK
 
 //A - TASK
-console.log("train task ishga tushdi !");
+console.log("train Area ishga tushdi !");
