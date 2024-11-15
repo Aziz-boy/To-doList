@@ -17,7 +17,7 @@ app.set("views", "views"); // yani views folderni ichidan o'qiydi
 app.set("view engine", "ejs"); // view engine ejs ligini ko'rsatib beryabmiz, ejs orqali back endni ichida front end yasaymiz
 
 // 4 **Router'larga** mo'ljallangan
-
+/* 
 app.get("/hello", function(req, res){
     res.end(`<h1 style="background: orange">HELLO MIT</h1>`);
 });
@@ -25,7 +25,29 @@ app.get("/hello", function(req, res){
 app.get("/gift", function(req, res){
     res.end(`<h1 style="background: green">GIFT PAGE</h1>`);
 });
+*/
+/*
+get bizga malumotni olihs uchun get ishlatilinadi 
+post esa ozi bilan malum bir malumotni olib keladi va  databasega yozadi
 
+HTTP 3 qismdan iborat (starter line) (headers) (request body =biz yozgan malumotni u body sectionga olib qo'yadi)
+
+
+
+
+*/
+
+
+
+
+app.post('/create-item' , (req,res) => {
+ console.log(req    );
+ res.json({test:"success"})
+});
+
+app.get('/',function(req, res) {
+    res.render('harid');
+})
 
 // serverni yaratamiz va unga app ni yuklaymiz
 const server = http.createServer(app);
@@ -34,6 +56,7 @@ server.listen(PORT, function() {
     console.log(`The server is running successfully on port: ${PORT}`);
 });
 
+// git reset --hard oxirgi versidagi push qilingan codega olib boradi
 // express orqali web server qurib oldik.
 // front end'ni qurish 2 usuli bor: 1) Backend'da front qurib olish BSSR using EJS 2) React - single page rendering
 
