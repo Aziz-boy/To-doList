@@ -2,7 +2,16 @@ console.log("Web serverni boshlash");
 const express = require('express');
 const app = express(); // express instance yani bu orqali biz express objectni ishlatamiz
 const http = require('http'); // http bu bizning core modulimiz
+const fs = require('fs');
 
+let user;
+fs.readFile("database/user.json","utf8",(err,data)=> {
+    if (err) {
+        console.log("ERROR")
+    }else {
+        user = JSON.parse(data);
+    }
+});
 // 1 **KIRISH** expressga kirib kelgan codelar yoziladi
 app.use(express.static("public")); // har qanday browserdan kirib kelayotgan zaproslar uchun public folder ochiq degani yani faqat public folderni clientlarga ochib beryapmiz
 app.use(express.json()); // kirib kelyotgan json formatdagi datani obj holatga o'girib beradi, bu bizga kirib kelayotgan object formatdagi datani json formatga otkazib beradi
@@ -32,18 +41,19 @@ post esa ozi bilan malum bir malumotni olib keladi va  databasega yozadi
 
 HTTP 3 qismdan iborat (starter line) (headers) (request body =biz yozgan malumotni u body sectionga olib qo'yadi)
 
-
-
-
 */
 
 
 
 
 app.post('/create-item' , (req,res) => {
- console.log(req    );
+ console.log(req.body);
  res.json({test:"success"})
 });
+
+app.get('/author', (req,res) => {
+    res.render('author', { user:user});
+})
 
 app.get('/',function(req, res) {
     res.render('harid');

@@ -1,0 +1,21 @@
+{
+    "name": "Azizboy",
+    "profession": "Software Engineer", 
+    "age": 18,
+    "residence": "Uzbekistan",
+    "adress": "Uzbekistan, Bukhara",
+    "languages": ["Uzbek", "Korean", "English","Russian","Tajik"],
+    "skills": ["Html", "Css", "Js", "NodeJS", "Python"],
+    "extra_skills":["Bootstrap, Materialize", "Tailwind", "Styling, Sass", "Django, Flask", "GIT Knowledge"],
+    "work_place": "IT Company",
+    "service_desc": "I offer a range of tech-driven solutions, including Web Development, UI/UX Design, and Software Development, tailored to meet your unique needs. ",
+    "about_me": "I enjoy building intuitive solutions, whether it's creating seamless user interfaces or developing efficient algorithms. Through my academic journey, I’ve worked on diverse projects that blend creativity and technical expertise, equipping me with a well-rounded skill set.",
+    "city": "Bukhara",
+    "title": ["Flower", "Seedlings", "Gardner", "Old", "New"],
+    "flower_desc": ["What is a Flower?", "What is a Seedling?", "Who is Gardner?"],
+    "flower_name": ["Tulip", "Daffodil", "Poppy", "Sunflower", "Bluebell", "Rose", "Snowdrop", "Cherry", "blossom"], 
+    "flower_price": ["15$", "25$", "125", "20s", "355", "385", "225", "19$", "9$"],
+    "famous_words": ["World is Beautiful with Flowers"],
+    "famous_name": ["Steve Jobs"]
+    }
+    
