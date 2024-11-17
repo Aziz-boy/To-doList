@@ -1,3 +1,10 @@
+.qobiq {
+    margin:0 auto;
+    padding:20px;
+    max-width: 1400px;
+    background-color: #e5e5e5;  
+}
+
 .frame {
     width:100%;
     height: 100%;
@@ -5,7 +12,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #e5e5e5;
+   
 }
 
 
@@ -22,7 +29,7 @@
 
 .main_frame .left_frame {
 width: 305px;
-height: 1315px;
+height: 1430px;
 flex-shrink: 0;
 position: relative;
 background: white;
@@ -153,6 +160,20 @@ flex-direction: column;
     margin-left: 40px;
     margin-bottom: 25px;
     margin-top: 39px;
+
+    /* background */
+    border: 1.5px solid #F0F0F6;
+}
+
+
+.marginer-last {
+    position: relative;
+    width: 220px;
+    height: 0px;
+    background: #F0F0F6;
+    margin-left: 40px;
+    margin-bottom: 15px;
+    
 
     /* background */
     border: 1.5px solid #F0F0F6;
@@ -444,6 +465,7 @@ text-transform: capitalize;
     flex-shrink: 0;
     margin-top:25px;
     margin-left: 45px;
+    
     /* background-color: aqua; */
 }
 
@@ -458,10 +480,21 @@ text-transform: capitalize;
     font-size: 15px;
     font-weight: 400;
     color: rgb(118, 118, 118);
-    margin-bottom: 5px;
     position: relative;
+    
+   
 }
+.main_frame .left_5 .extra-skills-header {
+    color: var(--Black, #2B2B2B);
 
+    /* H4 - 18px */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 123.6%; /* 22.248px */
+    text-transform: capitalize;
+}
 
 .main_frame .left_frame-5_skills img {
     margin-right: 10px;
@@ -478,6 +511,7 @@ text-transform: capitalize;
     margin-right: 27px;
     display: flex;
     flex-direction: column;
+    
 }
 
 
@@ -649,3 +683,237 @@ text-transform: capitalize;
 .main_frame .right_frame-menu img:last-child {
     margin-bottom: 0;
 }
+
+
+
+
+
+     /* pricing frame */
+
+.pricing-frame {
+    width: 970px;
+    height: 839px;
+    flex-shrink: 0;
+    /* background-color: #7EB942; */
+    margin-left:335px;
+    margin-right:135px;
+    margin-top: 69px;
+}     
+
+.pricing-frame .pricing-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.pricing-rectangle {
+    box-sizing: border-box;
+}
+.rectangle-header,  .tick, .isNot {
+    font-size: 14px; /* Reduce font size */
+    margin: 0; /* Remove unnecessary margins */
+}
+.tick img, .isNot img {
+    max-width: 100%;
+    height: auto;
+    margin-right:15.11px;
+    
+}
+
+
+.pricing-frame .pricing-text h1 {
+    color: var(--Black, #2B2B2B);
+
+    /* H2 - 32px */
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 123.6%; /* 39.552px */
+    text-transform: capitalize;
+}
+
+.pricing-frame .pricing-text p {
+    width: 438px;
+    height: 68px;
+    flex-shrink: 0;
+    color: var(--Paragraph-Font, #767676);
+    text-align: center;
+    font-kerning: none;
+    font-feature-settings: 'calt' off;
+    
+    /* P-15px paragraph */
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    text-transform: capitalize;
+}
+
+
+.pricing-frame .pricing-uchlik .pricing-rectangle {
+    width: 310px;
+    height: 609px;
+    flex-shrink: 0;
+    background: var(--White, #FFF);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.pricing-frame .pricing-uchlik .pricing-rectangle-3 {
+    width: 310px;
+    height: 609px;
+    flex-shrink: 0;
+    background: var(--White, #FFF);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.rectangle-header {
+    color: var(--Black, #2B2B2B);
+
+    /* H3 - 24px */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 123.6%; /* 29.664px */
+    text-transform: capitalize;
+}
+
+.rectangle-price {
+    color: var(--Black, #2B2B2B);
+
+    /* H2 - 32px */
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 123.6%; /* 39.552px */
+    text-transform: capitalize;
+}
+
+.rectangle-price-span {
+
+    color: var(--Black, #2B2B2B);
+    font-kerning: none;
+    font-feature-settings: 'calt' off;
+    
+    /* Paragraph Progress - 15 */
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    text-transform: capitalize;
+}
+
+.rectangle-p {
+    color: var(--Paragraph-Font, #767676);
+    text-align: center;
+    font-kerning: none;
+    font-feature-settings: 'calt' off;
+    
+    /* Paragraph Progress - 15 */
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    text-transform: capitalize;
+}
+
+.tick {
+   
+    color: var(--Black, #2B2B2B);
+    font-kerning: none;
+    font-feature-settings: 'calt' off;
+    
+    /* Paragraph Progress - 15 */
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    text-transform: capitalize;
+}
+
+.isNot {
+    
+    color: var(--Paragraph-Font, #767676);
+    font-kerning: none;
+    font-feature-settings: 'calt' off;
+    
+    /* Paragraph Progress - 15 */
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    text-transform: capitalize;
+
+}
+
+
+.pricing-uchlik {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:21px;
+ }
+
+ .pricing-rectangle-btn {
+    width: 169px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    border: none;
+ }
+
+ .pricing-rectangle-btn a {
+    color: var(--Black, #2B2B2B);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+ }
+
+.rectangle-popular-container {
+    width: 310px;
+    height: 30px;
+    flex-shrink: 0;
+    background: var(--Yellow, #FFB400);
+    margin-bottom: 67px;
+}
+ .rectangle-popular {
+    color: var(--Black, #2B2B2B);
+    font-kerning: none;
+    font-feature-settings: 'calt' off;
+     /* Paragraph Progress - 15 */
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    text-transform: capitalize; 
+
+ }
+
+ .rectangle-header
