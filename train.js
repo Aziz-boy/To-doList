@@ -153,25 +153,38 @@ const list = [
 
 
 
+
 //                             ============Then vs Catch Method =================
 //CALL VIA THEN CATCH 
 // let o;
-/*
-console.log('passed here 0') // birinchi bu ishladi
-maslahatBering(5)    // uchinchi bu ishladi. chunki nodejs synchronous functionlarni vazifalari tugatidiki asynchronous funtionga o'tadi
-  .then(function(data) {
-    console.log("Javob:", data); // Callback function yozyapmiz qachonki successfull bolsa malumotni bersin 
-  })
-  .catch(function(err) {
-    console.log("Error:", err); // Callback function yozyapmiz qachonki reject qilinsa errorni bersin
-  });
-console.log('passed here 2'); // ikkinchi bu ishladi
-*/
+
+// console.log('passed here 0') // birinchi bu ishladi
+// maslahatBering(5)    // uchinchi bu ishladi. chunki nodejs synchronous functionlarni vazifalari tugatidiki asynchronous funtionga o'tadi
+//   .then(function(data) {
+//     console.log("Javob:", data); // Callback function yozyapmiz qachonki successfull bolsa malumotni bersin 
+//   })
+//   .catch(function(err) {
+//     console.log("Error:", err); // Callback function yozyapmiz qachonki reject qilinsa errorni bersin
+//   });
+// console.log('passed here 2'); // ikkinchi bu ishladi
 
 
+                                    //  ============Async vs await Method =================
+
+// async function run () {
+//     let javob = await maslahatBering(25);
+//     console.log('Javob:', javob);
+//     javob = await maslahatBering(35);
+//     console.log('Javob:', javob);
+//     javob = await maslahatBering(45);
+//     console.log('Javob:', javob);
+// }
 
 
-             //==========================CALL VIA Async Await Method ================= 
+// run ()
+
+
+             //==========================qayta qayta chaqirishi event loop bilan ================= 
 
 // function maslahatBering(a,callback) {
 //     if (typeof a !== 'number') callback("insert a number",null); //agar kiritilgan a argumentni taypi number bolmasa error throw qilsin
