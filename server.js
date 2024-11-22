@@ -56,14 +56,14 @@ app.get('/author', (req,res) => {
 })
 
 app.get('/',function(req, res) {
-    res.render('harid');
+    res.render('reja');
 })
 
 // serverni yaratamiz va unga app ni yuklaymiz
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function() {
-    console.log(`The server is running successfully on port: ${PORT}`);
+    console.log(`The server is running successfully on port: ${PORT},  https://localhost:${PORT}`);
 });
 
 // git reset --hard oxirgi versidagi push qilingan codega olib boradi
@@ -76,3 +76,5 @@ server.listen(PORT, function() {
 // git reset --hard desak eng oxirgi deploy qilingan holga qaytaradi kodni
 // get bizga malumotni data base dan olish uchun ishlatilinadi 
 // post esa malumotni ozi bilan olib keladi va data base ga malum bir malumotni yozadi
+
+// secure socket layer bolmagani uchun ham bizda localhost link bilan kirmadi 

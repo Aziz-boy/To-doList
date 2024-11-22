@@ -213,4 +213,28 @@ const list = [
 //    });
 //    console.log('passed here 2');
 
+function qoldiqliBolish(a,b, callback) {
+    if (b === 0) {
+        callback("Mahrajga nol bolmaydi", null);
 
+
+    }else {
+        const c = a % b;
+        callback(null, c);
+    }
+}
+
+qoldiqliBolish(10,3 ,function(err,data) {
+    if (err) console.log("Error",err);
+    else {
+        console.log('Javob:', data);
+    }
+})
+
+/* biz cloud databaselardan foydalanyapmiz yani man
+ ozimni mashinamda mongoDB ni ishlatmayapman balkim
+  mongoDb atlasda ishlatyapman chunki keyinchalik 
+  loyihamni qayerda run qilishimdan qatiy nazar u 
+  ishlaydi agar local mashinada ustanovka qilsam boshqa
+   joylarda ishlata olmayman kampiturdan tashqari shuning 
+   uchun mongoDb atlasni tanlab oldim*/
