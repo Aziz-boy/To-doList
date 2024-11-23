@@ -54,17 +54,35 @@ HTTP 3 qismdan iborat (starter line) (headers) (request body =biz yozgan malumot
 
 
 app.post('/create-item' , (req,res) => {
+console.log("user entered /create-itemgit"); //tepadagi /create-item api ga kirganini aytayapti
  console.log(req.body);
- res.json({test:"success"})
+ const new_reja = req.body.reja;
+ db.collection('plans').insertOne({reja: new_reja }, (err, data) => {
+    if (err) {
+        console.log("Error:", err);
+        res.end("Something went wrong");
+    } else {
+        res.end("succesfully added");
+    }
+ });
 });
 
 app.get('/author', (req,res) => {
     res.render('author', { user:user});
 })
 
-app.get('/',function(req, res) {
-    res.render('reja');
-})
+app.get('/', function(req, res) {
+    console.log("user entered /"); //tepadagi / api ga kirganini aytayapti
+    db.collection('plans').find().toArray((err, data) => {
+        if (err) {
+            console.log("Error:", err);
+            res.status(500).send("Something went wrong");
+        } else {
+            // console.log(data); 
+            res.render('reja', {items: data});  // Pass the data to 'reja.ejs'
+        }
+    });
+});
 
 
 

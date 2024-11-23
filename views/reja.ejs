@@ -21,31 +21,48 @@
               <div class="d-flex align-items-center">
                 <input 
                 id="create-field"
-                name="item"
+                name="reja"
                 autofocus
                 autocomplete="off"
                 class="form-control mr-3"
                 type="text"
                 style="flex: 1"
                 />
-              <button class="btn btn-primary" style="border-radius: 20px">
+              <button class="btn btn-primary" style="border-radius: 20px; margin-left: 25px;">
               Yangi Reja Qo'shish 
               </button>
            </div>
 
-          <button id="clean-all" class="btn btn-danger" style="border-radius: 20px; margin-top: 20px;">
-            Hamma Rejalarni O'chirish
-          </button>
+           <!-- <%= items[1].reja %> -->
 
-        </form>
-      </div>
+      
 
-</div>
         
+   <ul id="item-list" class="list-group pb-1 pt-4">
 
+    <% items.map(function (item) { %>
+      <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
+        <span class="item-text"><%=item.reja%></span>
+        <div>
+           <button data-id="<%item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
+             O'zgartirish
+           </button>
+            
+           <button data-id="<%item._id%>"  id="delete-me" class="btn btn-danger btn-sm" >
+             O'chirish
+           </button>
+ 
+        </div>
+     </li>
+    <% }) %>  
+   </ul>
 
-
-    </div>
+            <button id="clean-all" class="btn btn-danger" style="border-radius: 20px; margin-top: 5px;">
+            Hamma Rejalarni O'chirish
+           </button> 
+   
+       </div>
+    </form> 
+  </div>
 </body>
-</html>
 </html>

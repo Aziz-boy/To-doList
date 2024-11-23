@@ -4,8 +4,7 @@ const mongodb = require('mongodb');
 let db;
 //mongoDB connect
 //MOngoDBga ulanib keyin serverni ishga tushirish kerak
-const connectionString = 
-"mongodb+srv://shavgoniaziz:Aminboy7007$@cluster0.a1vwj.mongodb.net/";
+const connectionString = 'mongodb+srv://shavgoniaziz:Aminboy7007$@cluster0.a1vwj.mongodb.net/Reja?retryWrites=true&w=majority';
 
 mongodb.connect(connectionString,
                {useNewUrlParser: true, 
@@ -22,7 +21,7 @@ mongodb.connect(connectionString,
         const server = http.createServer(app); // tuzga app.js orqali express srverni ishga tushuryapmiz
         let PORT = 3000;
         server.listen(PORT, function() { //va 3000 chi portda listen bolyapti 
-            console.log(`The server is running successfully on port: ${PORT},  https://localhost:${PORT}`);
+            console.log(`The server is running successfully on port: ${PORT},  http://localhost:${PORT}`);
         });    
       }
     });//ikkita narsani true holatda pass qilish kerak 
