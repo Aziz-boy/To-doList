@@ -27,20 +27,20 @@ Qilgan Yechimingiz…*/
 
 // 2-yechim
 
-function countLetter(e, enginner) {
-const list = enginner.split("");
-const count = list.reduce((acc,char,) => {
-      if (char === e ) {
-        return acc + 1;
-      }
-      return acc;
-},0);
+// function countLetter(e, enginner) {
+// const list = enginner.split("");
+// const count = list.reduce((acc,char,) => {
+//       if (char === e ) {
+//         return acc + 1;
+//       }
+//       return acc;
+// },0);
 
-return count;
-}
+// return count;
+// }
 
-const countedLetter = countLetter("e", "enginneer");
-console.log(countedLetter)
+// const countedLetter = countLetter("e", "enginneer");
+// console.log(countedLetter)
 
 
 
@@ -213,23 +213,23 @@ const list = [
 //    });
 //    console.log('passed here 2');
 
-function qoldiqliBolish(a,b, callback) {
-    if (b === 0) {
-        callback("Mahrajga nol bolmaydi", null);
+// function qoldiqliBolish(a,b, callback) {
+//     if (b === 0) {
+//         callback("Mahrajga nol bolmaydi", null);
 
 
-    }else {
-        const c = a % b;
-        callback(null, c);
-    }
-}
+//     }else {
+//         const c = a % b;
+//         callback(null, c);
+//     }
+// }
 
-qoldiqliBolish(10,3 ,function(err,data) {
-    if (err) console.log("Error",err);
-    else {
-        console.log('Javob:', data);
-    }
-})
+// qoldiqliBolish(10,3 ,function(err,data) {
+//     if (err) console.log("Error",err);
+//     else {
+//         console.log('Javob:', data);
+//     }
+// })
 
 /* biz cloud databaselardan foydalanyapmiz yani man
  ozimni mashinamda mongoDB ni ishlatmayapman balkim
@@ -238,3 +238,34 @@ qoldiqliBolish(10,3 ,function(err,data) {
   ishlaydi agar local mashinada ustanovka qilsam boshqa
    joylarda ishlata olmayman kampiturdan tashqari shuning 
    uchun mongoDb atlasni tanlab oldim*/
+
+// Masalani izohi
+//  B-TASK:  
+
+/* Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+
+MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+
+masalani yechimi:
+Qilgan Yechimingiz…*/
+
+//1-yechim
+
+function countDigits(str) {
+    return String(str) //stringga otkazib olamiz
+        .split('') // stringni array qilamiz alohida alohdida reduce ishlatgani
+        .reduce((count, char) => { // reduceni ishlatamiz sanash uchun
+            if (char >= '0' && char <= '9') { // sonmi yoqmi tekshiropmiz
+                count++; // agar son bolsa increment qilsin
+            }
+            return count; // qiymatni return qilamiz
+        }, 0); // boshlangich qiymatni 0 qilamiz
+}
+
+console.log(countDigits("ad2a54y79wet0sfgb9")); 
+
+
+
+  
+
+
