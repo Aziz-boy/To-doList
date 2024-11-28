@@ -1,3 +1,81 @@
+ 
+// Masalani izohi
+//TASK-C 
+
+//Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
+//MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
+
+//masalani yechimi:
+//1-yechim
+
+const moment = require("moment");
+
+class Shop {
+    // Konstruktor (mahsulotlarning boshlang‘ich qiymatlari o‘rnatiladi)
+    constructor(lagmon, non, cola) {
+        this.lagmon = lagmon; // Lag‘mon miqdori
+        this.non = non; // Non miqdori
+        this.cola = cola; // Cola miqdori
+    }
+
+  
+    hozirgiVaqt() {
+        return moment().format("HH:mm"); // Vaqtni 24 soatlik formatda qaytaradi
+    }
+
+    // Ombordagi mavjud mahsulotlarni ko‘rsatish
+    qoldiq() {
+        const vaqt = this.hozirgiVaqt();
+        console.log(
+            `Hozir ${vaqt}da omborda: ${this.non}ta non, ${this.lagmon}ta lag‘mon va ${this.cola}ta cola mavjud.`
+        );
+    }
+
+    // Mahsulot sotish
+    sotish(mahsulot, miqdor) {
+        if (!this[mahsulot]) {
+            console.log(`Mahsulot "${mahsulot}" mavjud emas.`);
+            return;
+        }
+
+        if (this[mahsulot] < miqdor) {
+            console.log(
+                `Uzr, omborda ${miqdor}ta ${mahsulot} yetarli emas. Faqat ${this[mahsulot]}ta mavjud.`
+            );
+        } else {
+            this[mahsulot] -= miqdor; 
+            console.log(
+                `Hozir ${this.hozirgiVaqt()}da ${miqdor}ta ${mahsulot} sotildi.`
+            );
+        }
+    }
+
+    // Omborga mahsulot qabul qilish
+    qabul(mahsulot, miqdor) {
+        if (!this[mahsulot]) {
+            console.log(`Mahsulot "${mahsulot}" mavjud emas.`);
+            return;
+        }
+
+        this[mahsulot] += miqdor; 
+        console.log(
+            `Hozir ${this.hozirgiVaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi.`
+        );
+    }
+}
+
+
+const shop = new Shop(4, 5, 2);
+
+shop.qoldiq(); 
+shop.sotish("non", 3); 
+shop.qabul("cola", 4); 
+shop.qoldiq(); 
+
+
+
+
+
 // Masalani izohi
 // A-TASK: 
 
@@ -272,17 +350,4 @@ Qilgan Yechimingiz…*/
 
 
 
-  
-// Masalani izohi
-//TASK-C 
-
-//Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
-//MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
-
-//masalani yechimi:
-//1-yechim
-
-// class Shop {
-//     constructor(lagmon,non,choy);
-     
-// };
+ 
