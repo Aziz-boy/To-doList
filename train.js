@@ -3,76 +3,85 @@
 //TASK-C 
 
 //Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
-//MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
+//MASALAN: 
+/*
+const shop = new Shop(4, 5, 2); 
+shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! 
+shop.sotish('non', 3) 
+shop.qabul('cola', 4)  
+shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
+*/
 
 //masalani yechimi:
 //1-yechim
-
-const moment = require("moment");
-
-class Shop {
-    // Konstruktor (mahsulotlarning boshlang‘ich qiymatlari o‘rnatiladi)
-    constructor(lagmon, non, cola) {
-        this.lagmon = lagmon; // Lag‘mon miqdori
-        this.non = non; // Non miqdori
-        this.cola = cola; // Cola miqdori
-    }
-
-  
-    hozirgiVaqt() {
-        return moment().format("HH:mm"); // Vaqtni 24 soatlik formatda qaytaradi
-    }
-
-    // Ombordagi mavjud mahsulotlarni ko‘rsatish
-    qoldiq() {
-        const vaqt = this.hozirgiVaqt();
-        console.log(
-            `Hozir ${vaqt}da omborda: ${this.non}ta non, ${this.lagmon}ta lag‘mon va ${this.cola}ta cola mavjud.`
-        );
-    }
-
-    // Mahsulot sotish
-    sotish(mahsulot, miqdor) {
-        if (!this[mahsulot]) {
-            console.log(`Mahsulot "${mahsulot}" mavjud emas.`);
-            return;
-        }
-
-        if (this[mahsulot] < miqdor) {
-            console.log(
-                `Uzr, omborda ${miqdor}ta ${mahsulot} yetarli emas. Faqat ${this[mahsulot]}ta mavjud.`
-            );
-        } else {
-            this[mahsulot] -= miqdor; 
-            console.log(
-                `Hozir ${this.hozirgiVaqt()}da ${miqdor}ta ${mahsulot} sotildi.`
-            );
-        }
-    }
-
-    // Omborga mahsulot qabul qilish
-    qabul(mahsulot, miqdor) {
-        if (!this[mahsulot]) {
-            console.log(`Mahsulot "${mahsulot}" mavjud emas.`);
-            return;
-        }
-
-        this[mahsulot] += miqdor; 
-        console.log(
-            `Hozir ${this.hozirgiVaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi.`
-        );
-    }
-}
-
-
+/*
 const shop = new Shop(4, 5, 2);
 
 shop.qoldiq(); 
 shop.sotish("non", 3); 
 shop.qabul("cola", 4); 
 shop.qoldiq(); 
+*/
 
 
+class Shop {
+    // Konstruktor (mahsulotlarning boshlang‘ich qiymatlari o‘rnatiladi)
+    constructor(non, lagmon, cola) {
+        this.lagmon = lagmon; // Lag‘mon miqdori
+        this.non = non; // Non miqdori
+        this.cola = cola; // Cola miqdori
+    }
+
+    hozirgiVaqt() {
+        const moment = require('moment'); // require
+         return moment().format('HH:mm');
+    }
+    
+
+    qoldiq() {
+       console.log(`Hozir soat ${this.hozirgiVaqt()}da ${this.non} ta non, ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud !`)
+    }
+   
+   sotish(mahsulotNomi, mahsulotMiqdori) {
+     if (mahsulotNomi === "lagmon") {
+        this.lagmon -= mahsulotMiqdori
+   }
+    else if (mahsulotNomi === "non") {
+        this.non -= mahsulotMiqdori
+   }
+    else if (mahsulotNomi === "cola") {
+        this.cola -= mahsulotMiqdori
+   }   else {
+    console.log('Noma’lum mahsulot!');
+  }
+   
+
+ }
+
+   qabul(mahsulotNomi, mahsulotMiqdori) {
+    if (mahsulotNomi === "lagmon") {
+       this.lagmon += mahsulotMiqdori
+  }
+   else if (mahsulotNomi === "non") {
+       this.non += mahsulotMiqdori
+  }
+   else if (mahsulotNomi === "cola") {
+       this.cola += mahsulotMiqdori
+  } else {
+    console.log('Noma’lum mahsulot!');
+  }
+
+ }
+
+ }
+
+
+ const shop = new Shop(4, 5, 2); 
+
+ shop.qoldiq(); 
+ shop.sotish("non", 3); 
+ shop.qabul("cola", 4); 
+ shop.qoldiq();  
 
 
 
@@ -198,14 +207,14 @@ console.log("train Area ishga tushdi !");
 
 
             //===================== ASYNCHRONOUS FUNCTION=========================
-const list = [
-    "Focus on learning, curiosity, failure, and building good habits.", //Ages 0-20
-    "Learn from mistakes, work hard, build a network, and think long-term.", //Ages 20-30
-   "Build a strong team, persist through challenges, and develop leadership skills.", // //Ages 30-40
-    "Mentor others, take calculated risks, and balance personal and professional life.", //Ages 40-50
-    "Reflect on achievements, give back to society, and continue learning.", //Ages 50-60
-   "Enjoy life, focus on health, and share your wisdom with the next generation." //Ages 60+
-   ];                    
+// const list = [
+//     "Focus on learning, curiosity, failure, and building good habits.", //Ages 0-20
+//     "Learn from mistakes, work hard, build a network, and think long-term.", //Ages 20-30
+//    "Build a strong team, persist through challenges, and develop leadership skills.", // //Ages 30-40
+//     "Mentor others, take calculated risks, and balance personal and professional life.", //Ages 40-50
+//     "Reflect on achievements, give back to society, and continue learning.", //Ages 50-60
+//    "Enjoy life, focus on health, and share your wisdom with the next generation." //Ages 60+
+//    ];                    
             //===================== DEFINITION QISMIDA ASYNCH ISHLATDIK==============
 // async function maslahatBering(a) {
 //     if (typeof a !== 'number') throw new Error ("insert a number"); //agar kiritilgan a argumentni taypi number bolmasa error throw qilsin
@@ -347,7 +356,3 @@ Qilgan Yechimingiz…*/
 // }
 
 // console.log(countDigits("ad2a54y79wet0sfgb9")); 
-
-
-
- 
