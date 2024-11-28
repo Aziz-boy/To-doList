@@ -16,8 +16,7 @@ fs.readFile("database/user.json","utf8",(err,data)=> {
 
 //MongoDB choqirish
 const db = require("./server").db(); //MongoDB objectni yani instance qurib beryapti va biz bu orqali biz Database ga turli xil malumotlarni yozish o'chirish ishlarini qilishimiz mumkin yani crud operation qila olamiz
-
-
+const new_mongodb = require("mongodb");
 
 // 1 **KIRISH** expressga kirib kelgan codelar yoziladi
 app.use(express.static("public")); // har qanday browserdan kirib kelayotgan zaproslar uchun public folder ochiq degani yani faqat public folderni clientlarga ochib beryapmiz
@@ -72,6 +71,16 @@ console.log("user entered /create-itemgit"); //tepadagi /create-item api ga kirg
 app.get('/author', (req,res) => {
     res.render('author', { user:user});
 })
+
+app.post("/delete-item", (req,res) => {
+  const id = req.body.id;
+  db.collection("plans").deleteOne(
+    {_id: new_mongodb.ObjectId(id)}, 
+      function(err,data) { //Mongodb ni object id sini typeiga wrap qilyapmiz
+        res.json({state:"success"}); // delete button bossak va bosganimiz post qiladi delete-item degan API ga va u ID yuboryapti frontdan va bu yerda biz data basedan ochiryapmiz
+  }) 
+});
+
 
 app.get('/', function(req, res) {
     console.log("user entered /"); //tepadagi / api ga kirganini aytayapti

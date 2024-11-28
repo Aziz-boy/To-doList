@@ -51,3 +51,31 @@ document
       console.log("Iltimos qaytadan harakat qiling !");
     });
   });
+
+  document.addEventListener("click", function(e) { // ebu nima bosilsa shu bosilgan narsa target bo'ladi
+    console.log(e)
+//DELETE OPERATION 
+    if (e.target.classList.contains("delete-me")) {
+      // alert("Siz delete tugmasini bosdingiz")
+      if(confirm("Are you sure you want to delete ?")){
+        // alert("Yes deb javob berildi !");
+       axios
+           .post("/delete-item", { id: e.target.getAttribute('data-id') })
+           .then((response) => {
+                console.log(response.data);
+                e.target.parentElement.parentElement.remove(); //bosgan narsamizni parent elementini ikki marta removw qilib front enddan rejani ochiramiz
+            })         
+        //nimani delete qilmoqchi bolsak osha rejaga tegishli bolgan rejani id sini beryapmiz
+        .catch((err) => {
+          console.log("Iltimos qaytadan harakat qiling!");
+      });
+      }
+    } 
+    //bu orqali biz aynan shu e ni ichida classlistda 
+    //delete me degan button mavjudmi shuni bilib olypamiz contains bilan
+   if (e.target.classList.contains("edit-me")) {
+      alert("Siz edit tugmasini bosdingiz")
+    //bu orqali biz aynan shu e ni ichidan classlist orqali bor classlarni listini koryapmiz 
+    //edit me degan class nomli button mavjudmi shuni bilib olypamiz contains bilan
+   }
+  })
