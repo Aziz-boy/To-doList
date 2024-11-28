@@ -57,13 +57,15 @@ app.post('/create-item' , (req,res) => {
 console.log("user entered /create-itemgit"); //tepadagi /create-item api ga kirganini aytayapti
  console.log(req.body);
  const new_reja = req.body.reja;
- db.collection('plans').insertOne({reja: new_reja }, (err, data) => {
-    if (err) {
-        console.log("Error:", err);
-        res.end("Something went wrong");
-    } else {
-        res.end("succesfully added");
-    }
+ db.collection('plans').insertOne({reja: new_reja }, (err, data) => { //insertone orqali biz reja degan nom bilan req.bodyga kelgan malumotni databasega yozyapman
+    // if (err) {
+    //     console.log("Error:", err);
+    //     res.end("Something went wrong");
+    // } else {
+    //     res.end("succesfully added");
+    // }
+    console.log(data.ops);
+    res.json(data.ops[0]);
  });
 });
 
@@ -73,13 +75,13 @@ app.get('/author', (req,res) => {
 
 app.get('/', function(req, res) {
     console.log("user entered /"); //tepadagi / api ga kirganini aytayapti
-    db.collection('plans').find().toArray((err, data) => {
+    db.collection('plans').find().toArray((err, data) => { //db bu mongodbni objecti documentationga ko'ra mongodbni objectida collection degan method bor va biz uni ichiga plans degan collectionni kirgizamiz chunki collectionimiz shunday edi reja databaseda. keyn u ichidan find qilsin izlasin va izlagan natijasini array qilib bersin 
         if (err) {
             console.log("Error:", err);
             res.status(500).send("Something went wrong");
         } else {
             // console.log(data); 
-            res.render('reja', {items: data});  // Pass the data to 'reja.ejs'
+            res.render('reja', {items: data});  // pass the data to  'reja.ejs' yani bu orqali biz malumotlardan reja ejs ichida foydalan olamiz
         }
     });
 });

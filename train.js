@@ -239,6 +239,13 @@ const list = [
    joylarda ishlata olmayman kampiturdan tashqari shuning 
    uchun mongoDb atlasni tanlab oldim*/
 
+
+
+
+
+
+
+
 // Masalani izohi
 //  B-TASK:  
 
@@ -250,22 +257,32 @@ masalani yechimi:
 Qilgan Yechimingiz…*/
 
 //1-yechim
+// function countDigits(str) {
+//     return String(str) //stringga otkazib olamiz
+//     .split('') // stringni array qilamiz alohida alohdida reduce ishlatgani
+//     .reduce((count, char) => { // reduceni ishlatamiz sanash uchun
+//         if (char >= '0' && char <= '9') { // sonmi yoqmi tekshiropmiz
+//             count++; // agar son bolsa increment qilsin
+//         }
+//         return count; // qiymatni return qilamiz
+//     }, 0); // boshlangich qiymatni 0 qilamiz
+// }
 
-function countDigits(str) {
-    return String(str) //stringga otkazib olamiz
-        .split('') // stringni array qilamiz alohida alohdida reduce ishlatgani
-        .reduce((count, char) => { // reduceni ishlatamiz sanash uchun
-            if (char >= '0' && char <= '9') { // sonmi yoqmi tekshiropmiz
-                count++; // agar son bolsa increment qilsin
-            }
-            return count; // qiymatni return qilamiz
-        }, 0); // boshlangich qiymatni 0 qilamiz
-}
-
-console.log(countDigits("ad2a54y79wet0sfgb9")); 
+// console.log(countDigits("ad2a54y79wet0sfgb9")); 
 
 
 
   
+// Masalani izohi
+//TASK-C 
 
+//Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
+//MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
 
+//masalani yechimi:
+//1-yechim
+
+// class Shop {
+//     constructor(lagmon,non,choy);
+     
+// };

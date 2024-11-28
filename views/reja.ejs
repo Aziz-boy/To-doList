@@ -17,7 +17,7 @@
         <h1 class="py-1 text-center display-4">REJA VA MAQSADLAR</h1>
     
         <div class="shadow-sm p-3 jumbotron" style="background-color:#73a76b; border-radius: 30px; ">
-            <form id="create-form" class="form-inline" action="/create-item" method="POST" >
+            <form id="create-form" class="form-inline" action="/create-item" method="POST" > 
               <div class="d-flex align-items-center">
                 <input 
                 id="create-field"
@@ -31,38 +31,32 @@
               <button class="btn btn-primary" style="border-radius: 20px; margin-left: 25px;">
               Yangi Reja Qo'shish 
               </button>
-           </div>
+             </div>
 
-           <!-- <%= items[1].reja %> -->
-
-      
-
-        
-   <ul id="item-list" class="list-group pb-1 pt-4">
-
-    <% items.map(function (item) { %>
-      <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
-        <span class="item-text"><%=item.reja%></span>
-        <div>
-           <button data-id="<%item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
-             O'zgartirish
-           </button>
-            
-           <button data-id="<%item._id%>"  id="delete-me" class="btn btn-danger btn-sm" >
-             O'chirish
-           </button>
- 
+           <!-- <%= items[1].reja %> -->   
+             </form> 
         </div>
-     </li>
-    <% }) %>  
-   </ul>
-
-            <button id="clean-all" class="btn btn-danger" style="border-radius: 20px; margin-top: 5px;">
-            Hamma Rejalarni O'chirish
-           </button> 
-   
-       </div>
-    </form> 
+                   
+          <ul id="item-list" class="list-group pb-1 pt-4">
+        <% items.map(function (item) { %>       <!-- //har bitta itemni qo'limizga olib berypati va biz shu olib bergan har bitta qiymat orqali yangi reja bilan mana shu yangi viewni qurib olyapmiz-->
+                <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
+                    <span class="item-text"><%= item.reja %></span>
+                    <div>
+                        <button data-id="<%= item._id %>" class="edit-me btn btn-secondary btn-sm mr-1">
+                            O'zgartirish
+                        </button>
+                        
+                        <button data-id="<%= item._id %>" id="delete-me" class="btn btn-danger btn-sm">
+                            O'chirish
+                        </button>
+                    </div>
+                </li>
+            <% }) %>  
+          </ul>
+        
   </div>
+
+  <script src="/browser.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js" integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
