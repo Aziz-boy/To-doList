@@ -13,7 +13,8 @@ function checkContent(word1, word2) {
 }
 
 checkContent("mitgroup", "gmtiprou");
-// Masalani izohi
+
+// Masalani izohi j
 //TASK-C 
 
 //Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
