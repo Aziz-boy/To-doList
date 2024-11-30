@@ -1,7 +1,7 @@
 
 const express = require('express');
-const app = express(); // express instance yani bu orqali biz express objectni ishlatamiz
-const http = require('http'); // http bu bizning core modulimiz
+const app = express(); 
+const http = require('http'); 
 const fs = require('fs');
 
 
@@ -11,61 +11,24 @@ const db = require("./server").db(); //Savol bu yerdagi db serverjs da yaratilga
 const new_mongodb = require("mongodb");
 
 // 1 **KIRISH** expressga kirib kelgan codelar yoziladi
-app.use(express.static("public")); // har qanday browserdan kirib kelayotgan zaproslar uchun public folder ochiq degani yani faqat public folderni clientlarga ochib beryapmiz
-app.use(express.json()); // kirib kelyotgan json formatdagi datani obj holatga o'girib beradi, bu bizga kirib kelayotgan object formatdagi datani json formatga otkazib beradi
-app.use(express.urlencoded({extended: true})); // buni yozmasak html formdan post qilingan malumotlarni express serverimiz ignore qiladi yani serverga kiritmaydi; HTML form post shaklida kevotgan requestlar qabul qivolamiza
+app.use(express.static("public"));
+app.use(express.json()); 
+app.use(express.urlencoded({extended: true})); 
 //app objectini ichidan choqirib olayotgan use mtodimiz design pattern hisoblanadi 
 // 2 **Session CODE** 
 // (Bu yerda Session code yozilishi mumkin)
 
 // 3 **VIEWS CODE** Backenda front end yasaymiz (VIEW yasaymiz)
 // BSSR back-end-server-side renderring yo'nalishini tanladik
-app.set("views", "views"); // yani views folderni ichidan o'qiydi
-app.set("view engine", "ejs"); // view engine ejs ligini ko'rsatib beryabmiz, ejs orqali back endni ichida front end yasaymiz
+app.set("views", "views"); 
+app.set("view engine", "ejs"); 
 
 // 4 **Router'larga** mo'ljallangan
-/* 
-app.get("/hello", function(req, res){
-    res.end(`<h1 style="background: orange">HELLO MIT</h1>`);
-});
-
-app.get("/gift", function(req, res){
-    res.end(`<h1 style="background: green">GIFT PAGE</h1>`);
-});
-*/
-/*
-get bizga malumotni olihs uchun get ishlatilinadi 
-post esa ozi bilan malum bir malumotni olib keladi va  databasega yozadi
-
-HTTP 3 qismdan iborat (starter line) (headers) (request body =biz yozgan malumotni u body sectionga olib qo'yadi)
-
-*/
-
-
-
-// 4. Routing code
-//  1 chi toifa 
-// Rest Api 
-// Traditional Api
-// GraphQl Api
-// 2 chi toifa 
-// Api header 
-// Api body 
-// 3 chi toifa 
-// Api ni ikki xil methodi bor 
-// get 
-// post 
 app.post('/create-item' , (req,res) => {
-console.log("user entered /create-itemgit"); //tepadagi /create-item api ga kirganini aytayapti
+console.log("user entered /create-itemgit"); 
  console.log(req.body);
  const new_reja = req.body.reja;
- db.collection('plans').insertOne({reja: new_reja }, (err, data) => { //insertone orqali biz reja degan nom bilan req.bodyga kelgan malumotni databasega yozyapman
-    // if (err) {
-    //     console.log("Error:", err);
-    //     res.end("Something went wrong");
-    // } else {
-    //     res.end("succesfully added");
-    // }
+ db.collection('plans').insertOne({reja: new_reja }, (err, data) => { 
     console.log(data.ops);
     res.json(data.ops[0]);
  });
@@ -79,38 +42,58 @@ app.post("/delete-item", (req,res) => {
   const id = req.body.id;
   db.collection("plans").deleteOne(
     {_id: new_mongodb.ObjectId(id)}, 
-      function(err,data) { //Mongodb ni object id sini typeiga wrap qilyapmiz
-        res.json({state:"success"}); // delete button bossak va bosganimiz post qiladi delete-item degan API ga va u ID yuboryapti frontdan va bu yerda biz data basedan ochiryapmiz
+      function(err,data) { 
+        res.json({state:"success"}); 
   }) 
 });
 
+app.post("/edit-item", (req,res) => {
+    const data = req.body;
+    console.log(data)
+    db.collection("plans").findOne(
+        {_id: new_mongodb.ObjectId(data.id)},
+        {$set: {reja: data.new_input}}, 
+        function(err, data){
+            res.json({state:"success"});
+        })
+
+});
+
+
+app.post("/delete-all", (req, res) => {
+    if( req.body.delete_all) {
+        db.collection("plans").deleteMany( function() {
+            res.json({state:"Hamma rejalar O'chirildi!"});
+        })
+    }
+})
+
 
 app.get('/', function(req, res) {
-    console.log("user entered /"); //tepadagi / api ga kirganini aytayapti
-    db.collection('plans').find().toArray((err, data) => { //db bu mongodbni objecti documentationga ko'ra mongodbni objectida collection degan method bor va biz uni ichiga plans degan collectionni kirgizamiz chunki collectionimiz shunday edi reja databaseda. keyn u ichidan find qilsin izlasin va izlagan natijasini array qilib bersin 
+    console.log("user entered /"); 
+    db.collection('plans').find().toArray((err, data) => { 
         if (err) {
             console.log("Error:", err);
             res.status(500).send("Something went wrong");
         } else {
-            // console.log(data); 
-            res.render('reja', {items: data});  // pass the data to  'reja.ejs' yani bu orqali biz malumotlardan reja ejs ichida foydalan olamiz
+            res.render('reja', {items: data}); 
         }
     });
 });
 
 
 
-// git reset --hard oxirgi versidagi push qilingan codega olib boradi
-// express orqali web server qurib oldik.
-// front end'ni qurish 2 usuli bor: 1) Backend'da front qurib olish BSSR using EJS 2) React - single page rendering
 
-// git clean -df oxirgi ruchnoy kiritgan narsalarni udalit qiladi
-// git pull origin master orqali eng oxirgi source ni yuklab olamiz
-// git ni bitta orqaga qaytarish uchun
-// git reset --hard desak eng oxirgi deploy qilingan holga qaytaradi kodni
-// get bizga malumotni data base dan olish uchun ishlatilinadi 
-// post esa malumotni ozi bilan olib keladi va data base ga malum bir malumotni yozadi
 
-// secure socket layer bolmagani uchun ham bizda localhost link bilan kirmadi 
+module.exports = app; 
 
-module.exports = app; //app ni export qilyapmiz
+  // Clean-all operation
+
+  // document.getElementById("clean-all").addEventListener("click", function() {
+  //   axios.post("/delete-all", { delete_all: true}).then(response=> {
+  //     alert(response.data.state);
+     
+  //   })
+  // })
+
+

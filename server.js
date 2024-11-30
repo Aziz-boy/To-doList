@@ -1,34 +1,26 @@
-const http = require('http'); // http bu bizning core modulimiz
-//const app = require ('./app') //app.js da export qilgan modulimizni ozimizga chaqiryapmiz | pastga ko'chirdik databasega errorsiz ulanganan keyn chaqirilishi uchun
+const http = require('http'); 
+
 const mongodb = require('mongodb');
 let db;
 //mongoDB connect
-//MOngoDBga ulanib keyin serverni ishga tushirish kerak
 const connectionString = 'mongodb+srv://shavgoniaziz:Aminboy7007$@cluster0.a1vwj.mongodb.net/Reja';
 
 mongodb.connect(connectionString,
                {useNewUrlParser: true, 
                 useUnifiedTopology: true,
 
-    }, (err,client) => {  //MongoDbga ulansa mongodb ni cleintini yani instancini olib beradi yani error mavjud bolmasa pass qiladi.
+    }, (err,client) => {  
       if(err) console.log("Error: ON MongoDb connection" );
       else {
         console.log("Connected to MongoDB successfully!");
-        //console.log(client); //Mongodb clientni korsa boladi 
-        module.exports = client;// kelajakda clientni kop ishlatamiz shuning uchun biz clientni server.js fayldan export qilib olishimiz kerak. cleintni ichida db degan object bor shuning uchun ham clientni export qilib olamiz 
-        console.log(client);
-        console.log(mongodb)
-        console.log(client)
-        /*biz uchun taxlab berilgan database connection object 
-        client bu qaytgan narsani olib beradi yani error mavjud 
-        bolmasa mongodbdan kelgan narsani olib beradi */
-        const app = require ('./app') //app.js da export qilgan modulimizni ozimizga chaqiryapmiz va shu run bolyapti 
-        // serverni yaratamiz va unga app ni yuklaymiz
-        const server = http.createServer(app); // tuzgan app.jsni require qilyapti serverni 3000 chi portda ishga tushuryapmiz
+        
+        module.exports = client;
+        
+        const app = require ('./app') 
+        const server = http.createServer(app); 
         let PORT = 3000;
-        server.listen(PORT, function() { //va 3000 chi portda listen bolyapti 
+        server.listen(PORT, function() {
             console.log(`The server is running successfully on port: ${PORT},  http://localhost:${PORT}`);
         });    
       }
-    });//ikkita narsani true holatda pass qilish kerak 
-    
+    });
