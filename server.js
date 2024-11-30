@@ -16,6 +16,9 @@ mongodb.connect(connectionString,
         console.log("Connected to MongoDB successfully!");
         //console.log(client); //Mongodb clientni korsa boladi 
         module.exports = client;// kelajakda clientni kop ishlatamiz shuning uchun biz clientni server.js fayldan export qilib olishimiz kerak. cleintni ichida db degan object bor shuning uchun ham clientni export qilib olamiz 
+        console.log(client);
+        console.log(mongodb)
+        console.log(client)
         /*biz uchun taxlab berilgan database connection object 
         client bu qaytgan narsani olib beradi yani error mavjud 
         bolmasa mongodbdan kelgan narsani olib beradi */
@@ -28,3 +31,4 @@ mongodb.connect(connectionString,
         });    
       }
     });//ikkita narsani true holatda pass qilish kerak 
+    

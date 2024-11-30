@@ -1,28 +1,20 @@
-console.log("Web serverni boshlash");
+
 const express = require('express');
 const app = express(); // express instance yani bu orqali biz express objectni ishlatamiz
 const http = require('http'); // http bu bizning core modulimiz
 const fs = require('fs');
 
-let user;
-//Fake Data Base Server
-fs.readFile("database/user.json","utf8",(err,data)=> {
-    if (err) {
-        console.log("ERROR")
-    }else {
-        user = JSON.parse(data);
-    }
-});
+
 
 //MongoDB choqirish
-const db = require("./server").db(); //MongoDB objectni yani instance qurib beryapti va biz bu orqali biz Database ga turli xil malumotlarni yozish o'chirish ishlarini qilishimiz mumkin yani crud operation qila olamiz
+const db = require("./server").db(); //Savol bu yerdagi db serverjs da yaratilgan db variablemi ? server.jsimizdagi client objectini ichida db methodi yoq ekan qayerdan olyapti ?
 const new_mongodb = require("mongodb");
 
 // 1 **KIRISH** expressga kirib kelgan codelar yoziladi
 app.use(express.static("public")); // har qanday browserdan kirib kelayotgan zaproslar uchun public folder ochiq degani yani faqat public folderni clientlarga ochib beryapmiz
 app.use(express.json()); // kirib kelyotgan json formatdagi datani obj holatga o'girib beradi, bu bizga kirib kelayotgan object formatdagi datani json formatga otkazib beradi
 app.use(express.urlencoded({extended: true})); // buni yozmasak html formdan post qilingan malumotlarni express serverimiz ignore qiladi yani serverga kiritmaydi; HTML form post shaklida kevotgan requestlar qabul qivolamiza
-
+//app objectini ichidan choqirib olayotgan use mtodimiz design pattern hisoblanadi 
 // 2 **Session CODE** 
 // (Bu yerda Session code yozilishi mumkin)
 
@@ -51,7 +43,18 @@ HTTP 3 qismdan iborat (starter line) (headers) (request body =biz yozgan malumot
 
 
 
-
+// 4. Routing code
+//  1 chi toifa 
+// Rest Api 
+// Traditional Api
+// GraphQl Api
+// 2 chi toifa 
+// Api header 
+// Api body 
+// 3 chi toifa 
+// Api ni ikki xil methodi bor 
+// get 
+// post 
 app.post('/create-item' , (req,res) => {
 console.log("user entered /create-itemgit"); //tepadagi /create-item api ga kirganini aytayapti
  console.log(req.body);
