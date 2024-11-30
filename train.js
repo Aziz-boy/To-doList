@@ -6,15 +6,22 @@ console.log("Train.js is running")
 ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
 //MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true; */
 
-function checkContent(word1, word2) {
-    const sorted_word1 = word1.split("").sort().join("");
-    const sorted_word2 = word2.split("").sort().join("");
-    console.log(sorted_word1 === sorted_word2);
-}
+function checkContent(string_1, string_2) {
+    const string_1arr = string_1.split("").sort().join("");
+    const string_2arr = string_2.split("").sort().join("");
 
-checkContent("mitgroup", "gmtiprou");
+    if (string_1arr === string_2arr) {
+             return true
+    }  else{
+           return false
+    } 
+ }
 
-// Masalani izohi j
+const result = checkContent("mitgroup", "gmtiprou");
+
+console.log(result);
+
+// Masalani izohi 
 //TASK-C 
 
 //Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
