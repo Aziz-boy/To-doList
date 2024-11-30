@@ -1,4 +1,18 @@
- 
+console.log("Train.js is running")
+//TASK-D
+
+// Masalani izohi
+/*Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har 
+ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
+//MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true; */
+
+function checkContent(word1, word2) {
+    const sorted_word1 = word1.split("").sort().join("");
+    const sorted_word2 = word2.split("").sort().join("");
+    console.log(sorted_word1 === sorted_word2);
+}
+
+checkContent("mitgroup", "gmtiprou");
 // Masalani izohi
 //TASK-C 
 
@@ -24,64 +38,64 @@ shop.qoldiq();
 */
 
 
-class Shop {
-    // Konstruktor (mahsulotlarning boshlang‘ich qiymatlari o‘rnatiladi)
-    constructor(non, lagmon, cola) {
-        this.lagmon = lagmon; // Lag‘mon miqdori
-        this.non = non; // Non miqdori
-        this.cola = cola; // Cola miqdori
-    }
+// class Shop {
+//     // Konstruktor (mahsulotlarning boshlang‘ich qiymatlari o‘rnatiladi)
+//     constructor(non, lagmon, cola) {
+//         this.lagmon = lagmon; // Lag‘mon miqdori
+//         this.non = non; // Non miqdori
+//         this.cola = cola; // Cola miqdori
+//     }
 
-    hozirgiVaqt() {
-        const moment = require('moment'); // require
-         return moment().format('HH:mm');
-    }
+//     hozirgiVaqt() {
+//         const moment = require('moment'); // require
+//          return moment().format('HH:mm');
+//     }
     
 
-    qoldiq() {
-       console.log(`Hozir soat ${this.hozirgiVaqt()}da ${this.non} ta non, ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud !`)
-    }
+//     qoldiq() {
+//        console.log(`Hozir soat ${this.hozirgiVaqt()}da ${this.non} ta non, ${this.lagmon} ta lagmon va ${this.cola} ta cola mavjud !`)
+//     }
    
-   sotish(mahsulotNomi, mahsulotMiqdori) {
-     if (mahsulotNomi === "lagmon") {
-        this.lagmon -= mahsulotMiqdori
-   }
-    else if (mahsulotNomi === "non") {
-        this.non -= mahsulotMiqdori
-   }
-    else if (mahsulotNomi === "cola") {
-        this.cola -= mahsulotMiqdori
-   }   else {
-    console.log('Noma’lum mahsulot!');
-  }
+//    sotish(mahsulotNomi, mahsulotMiqdori) {
+//      if (mahsulotNomi === "lagmon") {
+//         this.lagmon -= mahsulotMiqdori
+//    }
+//     else if (mahsulotNomi === "non") {
+//         this.non -= mahsulotMiqdori
+//    }
+//     else if (mahsulotNomi === "cola") {
+//         this.cola -= mahsulotMiqdori
+//    }   else {
+//     console.log('Noma’lum mahsulot!');
+//   }
    
 
- }
+//  }
 
-   qabul(mahsulotNomi, mahsulotMiqdori) {
-    if (mahsulotNomi === "lagmon") {
-       this.lagmon += mahsulotMiqdori
-  }
-   else if (mahsulotNomi === "non") {
-       this.non += mahsulotMiqdori
-  }
-   else if (mahsulotNomi === "cola") {
-       this.cola += mahsulotMiqdori
-  } else {
-    console.log('Noma’lum mahsulot!');
-  }
+//    qabul(mahsulotNomi, mahsulotMiqdori) {
+//     if (mahsulotNomi === "lagmon") {
+//        this.lagmon += mahsulotMiqdori
+//   }
+//    else if (mahsulotNomi === "non") {
+//        this.non += mahsulotMiqdori
+//   }
+//    else if (mahsulotNomi === "cola") {
+//        this.cola += mahsulotMiqdori
+//   } else {
+//     console.log('Noma’lum mahsulot!');
+//   }
 
- }
+//  }
 
- }
+//  }
 
 
- const shop = new Shop(4, 5, 2); 
+//  const shop = new Shop(4, 5, 2); 
 
- shop.qoldiq(); 
- shop.sotish("non", 3); 
- shop.qabul("cola", 4); 
- shop.qoldiq();  
+//  shop.qoldiq(); 
+//  shop.sotish("non", 3); 
+//  shop.qabul("cola", 4); 
+//  shop.qoldiq();  
 
 
 
