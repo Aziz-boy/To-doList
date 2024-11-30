@@ -7,7 +7,7 @@ const fs = require('fs');
 
 
 //MongoDB choqirish
-const db = require("./server").db(); //Savol bu yerdagi db serverjs da yaratilgan db variablemi ? server.jsimizdagi client objectini ichida db methodi yoq ekan qayerdan olyapti ?
+const db = require("./server").db(); 
 const new_mongodb = require("mongodb");
 
 // 1 **KIRISH** expressga kirib kelgan codelar yoziladi
