@@ -1,0 +1,127 @@
+#create-field::placeholder {
+    color: #94ADCF;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#create-field {
+    color: rgba(148, 173, 207, 0.70);
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.burger-btn {
+    width: 40px;
+    height: 29px;
+    flex-shrink: 0;
+    padding-left: 224px;   
+}
+
+
+#item-list {
+    width: 449px;
+    height: auto; /* Height adjusts automatically to fit the content */
+    background: #38404B;
+    border-radius: 16px; /* Optional for smooth corners */
+   
+    padding: 0; /* Remove default padding */
+    list-style-type: none; /* Remove default bullets */
+    margin: 20px auto; /* Center the list horizontally */
+    flex-shrink: 0;
+  }
+
+  #item-list .list-group-item {
+    background: #38404B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px; /* Optional for smooth corners */
+    margin: 10px 0; /* Space between list items */
+    padding: 10px 15px; /* Spacing inside the list items */
+    box-shadow: 
+    1px 1px 2px 0px rgba(64, 74, 86, 0.30) inset, 
+    -1px -1px 2px 0px rgba(48, 54, 64, 0.50) inset,
+    5px 5px 13px rgba(48, 54, 64, 0.90),
+    -5px -5px 10px rgba(64, 74, 86, 0.90),
+    5px -5px 10px rgba(48, 54, 64, 0.20),
+    -5px 5px 10px rgba(48, 54, 64, 0.20);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #item-list .list-group-item .item-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(148, 173, 207, 0.70); /* Customize text color */
+  }
+
+  #item-list .list-group-item button {
+    border-radius: 8px; /* Smooth button corners */
+  }
+
+
+  /* Circular button style */
+  .btn-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;; /* Initial danger color (red) */
+    color: white; /* Icon or text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Button hover effect */
+  .btn-circle:hover {
+    background-color: #4A545C; /* Slightly darker red on hover */
+    transform: scale(1.1); /* Enlarge slightly */
+  }
+
+  /* Button clicked (active) effect */
+  .btn-circle:active {
+    background-color: #c82333; /* Darker shade for active click */
+    transform: scale(0.95); /* Slightly shrink */
+  }
+
+
+
+.btn-group {
+    display: flex;
+    gap: 0.6cm;
+}
+
+
+
+  #clean-all {
+    background: linear-gradient(45deg, #ff6f61, #d34f5b); /* Gradient background */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust padding for a better size */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  #clean-all:hover {
+    background: linear-gradient(45deg, #d34f5b, #ff6f61); /* Invert gradient on hover */
+    cursor: pointer; /* Change cursor to pointer */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  
+  #clean-all:focus {
+    outline: none; /* Remove focus outline */
+  }
+  

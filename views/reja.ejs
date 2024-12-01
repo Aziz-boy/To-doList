@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <title>Reja</title>
+    <link rel="stylesheet" href="/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+
+
     <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
     rel="stylesheet" 
@@ -12,41 +18,44 @@
     crossorigin="anonymous"
     />
 </head>
-<body style="background-color:#C2FFC7 ;">
-    <div class="container" style="background-color: #9EDF9C; border-radius: 20px; margin-top: 40px; padding-bottom: 20px;" >
-        <h1 class="py-1 text-center display-4">REJA VA MAQSADLAR</h1>
-    
-        <div class="shadow-sm p-3 jumbotron" style="background-color:#73a76b; border-radius: 30px; ">
-            <form id="create-form" class="form-inline" action="/create-item" method="POST" > 
-              <div class="d-flex align-items-center">
-                <input 
-                id="create-field"
-                name="reja"
-                autofocus
-                autocomplete="off"
-                class="form-control mr-3"
-                type="text"
-                style="flex: 1"
+<body style="background-color: #38404B;">
+    <div class="container"  >
+        <div class="container-fluid" style="margin-top: 40px; padding-bottom: 20px;">
+          <div class="shadow-sm p-3 jumbotron">
+            <form id="create-form" class="d-flex justify-content-center align-items-center" action="/create-item" method="POST" >
+              <div class="d-flex justify-content-center align-items-center w-100 position-relative" style="max-width: 578px; ">
+                <!-- Input Field -->
+                <input
+                  id="create-field"
+                  name="reja"
+                  autofocus
+                  autocomplete="off"
+                  class="form-control mr-3"
+                  placeholder="Add new task"
+                  maxlength="200"
+                  type="text"
+                  style="max-width: 578px; width: 100%; height: 59px; border-radius: 16px; background: #38404B; 
+                         box-shadow: 1px 1px 2px 0px rgba(66, 75, 88, 0.30), -1px -1px 2px 0px rgba(46, 53, 62, 0.50), 
+                         -3px 3px 6px 0px rgba(46, 53, 62, 0.20) inset, 3px -3px 6px 0px rgba(46, 53, 62, 0.20) inset, 
+                         -3px -3px 6px 0px rgba(66, 75, 88, 0.90) inset, 3px 3px 8px 0px rgba(46, 53, 62, 0.90) inset; 
+                         padding-right: 60px; box-sizing: border-box; border:none;"
                 />
-              <button class="btn btn-primary" style="border-radius: 20px; margin-left: 25px;">
-              Yangi Reja Qo'shish 
-              </button>
-             </div>
-
-             </form> 
-        </div>
+              </div>
+            </form>
+          </div>
+        
                    
-          <ul id="item-list" class="list-group pb-1 pt-4">
+          <ul id="item-list" class="list-group pb-1 pt-4 ">
         <% items.map(function (item) { %>       <!-- //har bitta itemni qo'limizga olib berypati va biz shu olib bergan har bitta qiymat orqali yangi reja bilan mana shu yangi viewni qurib olyapmiz-->
                 <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
                     <span class="item-text"><%= item.reja %></span>
                     <div>
                         <button data-id="<%= item._id %>"  class="edit-me btn btn-secondary btn-sm mr-1">
-                            O'zgartirish
+                            Edit <i class="fa-solid fa-pen-to-square fa-beat-fade"></i>
                         </button>
                         
                         <button data-id="<%= item._id %>"  class="delete-me btn btn-danger btn-sm">
-                            O'chirish
+                            Delete <i class="fa-solid fa-delete-left fa-beat"></i>
                         </button>
                     </div>
                 </li>
@@ -54,7 +63,7 @@
           </ul>
         
           <button id="clean-all" class="btn btn-danger" style="border-radius: 20px; margin-top: 30px;">
-            Hamma Rejalarni O'chirish
+            Delete All <i class="fa-solid fa-trash fa-flip"></i>
           </button>
   </div>
 
