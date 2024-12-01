@@ -14,7 +14,7 @@ const new_mongodb = require("mongodb");
 app.use(express.static("public"));
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true})); 
-//app objectini ichidan choqirib olayotgan use mtodimiz design pattern hisoblanadi 
+
 // 2 **Session CODE** 
 // (Bu yerda Session code yozilishi mumkin)
 
@@ -87,13 +87,6 @@ app.get('/', function(req, res) {
 
 module.exports = app; 
 
-  // Clean-all operation
 
-  // document.getElementById("clean-all").addEventListener("click", function() {
-  //   axios.post("/delete-all", { delete_all: true}).then(response=> {
-  //     alert(response.data.state);
-     
-  //   })
-  // })
 
 
